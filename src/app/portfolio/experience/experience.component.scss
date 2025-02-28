@@ -147,22 +147,113 @@ $transition-speed: 0.3s;
 }
 
 @media screen and (max-width: 768px) {
-    .timeline::before {
-        left: 20px;
+    #experience {
+        padding: 40px 15px;
     }
 
-    .timeline-item {
-        width: 100%;
-        padding-left: 40px;
-
-        &.left, &.right {
-            left: 0;
-            justify-content: flex-start;
-            text-align: left;
+    .timeline {
+        &::before {
+            left: 15px; // Moves timeline line to the left
         }
 
-        .timeline-dot {
-            left: 20px;
+        .timeline-item {
+            width: 100%;
+            padding-left: 40px;
+            padding-right: 0;
+            text-align: left;
+            
+            &.left, &.right {
+                left: 0;
+                justify-content: flex-start;
+            }
+
+            .timeline-dot {
+                left: 15px; // Moves dot to the left
+                width: 16px;
+                height: 16px;
+            }
+
+            .timeline-box {
+                width: 90%;
+                margin-left: 20px;
+                padding: 12px 15px;
+                background: rgba(255, 255, 255, 0.08);
+                border-left: 3px solid $color-primary; // Highlight effect
+
+                h3 {
+                    font-size: 18px;
+                }
+
+                .toggle-btn {
+                    font-size: 18px;
+                }
+
+                .timeline-content {
+                    ul {
+                        padding-left: 15px;
+
+                        li {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
         }
     }
 }
+
+// **⬇️ Special Fix for 425px & Smaller Screens**
+@media screen and (max-width: 425px) {
+    #experience .timeline {
+        position: relative;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    /* Move the timeline line to the left */
+    #experience .timeline::before {
+        left: 15px;
+        width: 4px;
+        height: 100%;
+        background: #ff9671;
+    }
+
+    /* Ensure all cards are full width and centered */
+    #experience .timeline-item {
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start !important;
+        text-align: left !important;
+        padding-left: 40px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Remove the left/right positioning */
+    #experience .timeline-item.left,
+    #experience .timeline-item.right {
+        left: 0 !important;
+        justify-content: flex-start !important;
+    }
+
+    /* Align all dots properly */
+    #experience .timeline-item .timeline-dot {
+        left: 15px !important; /* Align dots with the left timeline */
+        top: 15px;
+    }
+
+    /* Ensure all boxes take the full width */
+    #experience .timeline-item .timeline-box {
+        width: calc(100% - 50px) !important;
+        margin-left: 20px !important;
+        text-align: left !important;
+    }
+}
+
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,17 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  menuOpen = false;
+  menuOpen: boolean = false;
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
-  
-  scrollToSection(sectionId: string) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-      this.toggleMenu(); // Close menu after click
+
+  @HostListener('document:click', ['$event'])
+  closeMenu(event: Event) {
+    const nav = document.querySelector('nav');
+    const burger = document.querySelector('.burger');
+
+    if (this.menuOpen && nav && !nav.contains(event.target as Node) && !burger?.contains(event.target as Node)) {
+      this.menuOpen = false;
     }
   }
 }

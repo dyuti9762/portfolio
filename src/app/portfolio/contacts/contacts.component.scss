@@ -28,21 +28,25 @@ $shadow: rgba(255, 107, 92, 0.5);
             text-transform: uppercase;
             margin-bottom: 15px;
             position: relative;
+            display: inline-block; // Ensures the underline width is controlled by text
+            text-align: center; // Center text
+        
             &::after {
                 content: '';
-                width: 80px;
+                width: 80px; // Width of underline
                 height: 4px;
                 background: $primary;
                 display: block;
-                margin-top: 8px;
+                margin: 8px auto 0; // Centers the underline
                 border-radius: 2px;
             }
         }
+        
 
         p {
             font-size: 18px;
             color: lighten($text-light, 20%);
-            max-width: 500px;
+            //max-width: 500px;
         }
     }
 
@@ -136,3 +140,69 @@ $shadow: rgba(255, 107, 92, 0.5);
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .contact-message {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .contact-details {
+        align-items: center;
+        width: 100%;
+    }
+
+    .contact-item {
+        width: 90%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .contact-socials {
+        justify-content: center;
+    }
+}
+
+/* 🔥 425px & Below: Full Width, Centered */
+@media screen and (max-width: 425px) {
+    .contact-container {
+        width: 100%;
+        padding: 0;
+    }
+
+    .contact-message {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .contact-details {
+        width: 100%;
+        align-items: center;
+    }
+
+    .contact-item {
+        width: 100%;
+        flex-direction: column;
+        padding: 12px 15px;
+    }
+
+    .contact-socials {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .social-link {
+        width: 80%;
+        text-align: center;
+    }
+}
+

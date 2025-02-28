@@ -113,12 +113,14 @@ $color-light: #ffffff;
     line-height: 1.6;
 }
 
-/* Responsive Design */
+
+
 @media screen and (max-width: 768px) {
     .hero {
         flex-direction: column;
         text-align: center;
         height: auto;
+        margin-top: 80px; // Adds space below header
     }
 
     .content {
@@ -131,6 +133,29 @@ $color-light: #ffffff;
     }
 
     .image img {
-        max-width: 220px;
+        max-width: 220px; // Smaller image for tablet
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .hero {
+        margin-top: 100px; // Ensures it's not hidden under header
+    }
+
+    .content h1 {
+        font-size: 28px; // Smaller header text
+    }
+
+    .content h2 {
+        font-size: 22px;
+    }
+
+    .resume-btn {
+        font-size: 14px; // Smaller button text
+        padding: 10px 20px;
+    }
+
+    .image img {
+        max-width: 180px; // Even smaller image for mobile
     }
 }
