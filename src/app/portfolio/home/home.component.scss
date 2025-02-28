@@ -135,6 +135,10 @@ $color-light: #ffffff;
     .image img {
         max-width: 220px; // Smaller image for tablet
     }
+
+    #about {
+        margin-top: 25px;
+    }
 }
 
 @media screen and (max-width: 425px) {
@@ -157,5 +161,9 @@ $color-light: #ffffff;
 
     .image img {
         max-width: 180px; // Even smaller image for mobile
+    }
+
+    #about {
+        margin-top: 25px;
     }
 }
