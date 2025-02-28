@@ -1,0 +1,15 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* Ensure full-width responsiveness */
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevents any horizontal scroll */
+    background-color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

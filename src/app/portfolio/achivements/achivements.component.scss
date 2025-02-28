@@ -1,0 +1,84 @@
+$color-primary: #ff6b5c;
+$color-bg: #181818;
+$color-light: #fff;
+$shadow-color: rgba(255, 107, 92, 0.6);
+$transition-speed: 0.3s;
+
+#achievements-education {
+    padding: 60px 20px;
+    background: $color-bg;
+    color: $color-light;
+    text-align: center;
+
+    .section-title {
+        font-size: 36px;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        position: relative;
+
+        &::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: $color-primary;
+            display: block;
+            margin: 10px auto;
+        }
+    }
+
+    .content-wrapper {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 40px;
+        text-align: left;
+    }
+
+    /* Achievements & Education (Same Styling) */
+    .achievements, .education {
+        flex: 1;
+        min-width: 300px;
+
+        h3 {
+            font-size: 24px;
+            color: $color-primary;
+            margin-bottom: 20px;
+        }
+
+        .highlight-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            position: relative;
+            transition: box-shadow $transition-speed ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+            &:hover {
+                box-shadow: 0 8px 16px $shadow-color;
+            }
+
+            p {
+                font-size: 16px;
+                color: #ccc;
+            }
+        }
+
+        .badge {
+            background: $color-primary;
+            color: $color-light;
+            font-weight: bold;
+            padding: 8px 15px;
+            display: inline-block;
+            border-radius: 5px;
+            box-shadow: 0 3px 8px rgba(255, 107, 92, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .edu-year {
+            font-size: 14px;
+            color: #ccc;
+            margin-top: 5px;
+        }
+    }
+}

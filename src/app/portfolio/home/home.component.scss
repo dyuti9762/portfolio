@@ -1,0 +1,136 @@
+$color-primary: #ff6b5c;
+$color-secondary: #ffb86c;
+$color-dark: #121212;
+$color-light: #ffffff;
+
+:host {
+    display: block;
+    background: $color-dark;
+    color: $color-light;
+    padding: 50px;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90vh;
+    gap: 30px; // Reduced space between text and image
+}
+
+.content {
+    flex: 1;
+}
+
+.content h2 {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.content h1 {
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.content span {
+    color: $color-primary;
+}
+
+.resume-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: $color-light;
+    background: linear-gradient(90deg, $color-primary, $color-secondary);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(255, 107, 92, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button Hover Effect */
+.resume-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(255, 107, 92, 0.6);
+}
+
+/* Button Active Click Effect */
+.resume-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0px 2px 8px rgba(255, 107, 92, 0.3);
+}
+
+.image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.image img {
+    max-width: 280px; // Reduced size slightly
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px rgba(255, 107, 92, 0.5);
+}
+
+/* About Me Section */
+#about {
+    background: darken($color-dark, 5%);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.about-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    position: relative;
+    text-transform: uppercase;
+
+    &::after {
+        content: '';
+        width: 80px;
+        height: 4px;
+        background: $color-primary;
+        display: block;
+        margin: 8px auto;
+        border-radius: 2px;
+    }
+}
+
+#about p {
+    font-size: 18px;
+    color: lighten($color-light, 20%);
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+    }
+
+    .content {
+        order: 2;
+    }
+
+    .image {
+        order: 1;
+        margin-bottom: 20px;
+    }
+
+    .image img {
+        max-width: 220px;
+    }
+}

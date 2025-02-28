@@ -1,0 +1,92 @@
+$color-primary: #ff6b5c;
+$color-dark: #121212;
+$color-light: #ffffff;
+$transition-speed: 0.3s;
+
+#skills {
+    text-align: center;
+    padding: 60px 20px;
+    background: $color-dark;
+    color: $color-light;
+
+    .section-title {
+        font-size: 36px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        position: relative;
+        display: inline-block;
+        &::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background: $color-primary;
+            display: block;
+            margin: 10px auto 0;
+        }
+    }
+
+    .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        justify-content: center;
+        align-items: start;
+    }
+
+    .skill-category {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        transition: transform $transition-speed ease-in-out, box-shadow $transition-speed ease-in-out;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 107, 92, 0.4);
+        }
+
+        img {
+            width: 60px;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 22px;
+            color: $color-primary;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        li {
+            margin-bottom: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s forwards;
+        }
+    }
+}
+
+// Animation for list items to fade in
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Delay each list item animation
+.skill-category ul li:nth-child(1) { animation-delay: 0.2s; }
+.skill-category ul li:nth-child(2) { animation-delay: 0.4s; }
+.skill-category ul li:nth-child(3) { animation-delay: 0.6s; }

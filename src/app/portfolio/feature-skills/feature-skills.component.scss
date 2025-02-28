@@ -1,0 +1,84 @@
+$primary-color: #ff6b5c; // Accent color (can be changed)
+$background-dark: #121212; // Dark theme background
+$card-dark: #1e1e1e; // Card color
+$text-light: #ffffff;
+$shadow-glow: rgba(255, 107, 92, 0.6); // Neon glow effect
+
+#key-features {
+    padding: 60px 20px;
+    background: $background-dark;
+    text-align: center;
+
+    .section-title {
+        font-size: 36px;
+        font-weight: bold;
+        color: $text-light;
+        margin-bottom: 40px;
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        &::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: $primary-color;
+            display: block;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        max-width: 1000px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .feature-box {
+        background: $card-dark;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+        color: $text-light;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 12px $shadow-glow;
+            border-color: $primary-color;
+        }
+
+        .icon {
+            font-size: 40px;
+            display: block;
+            margin-bottom: 10px;
+            color: $primary-color;
+            transition: color 0.3s ease;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}

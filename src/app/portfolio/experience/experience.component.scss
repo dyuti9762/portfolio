@@ -1,0 +1,168 @@
+$color-primary: #ff6b5c;
+$color-bg: #181818;
+$color-light: #fff;
+$timeline-border: #ff9671;
+$transition-speed: 0.3s;
+
+#experience {
+    padding: 60px 20px;
+    background: $color-bg;
+    color: $color-light;
+    text-align: center;
+
+    .section-title {
+        font-size: 36px;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        position: relative;
+        &::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: $color-primary;
+            display: block;
+            margin: 10px auto;
+        }
+    }
+
+    .timeline {
+        position: relative;
+        max-width: 900px;
+        margin: auto;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: $timeline-border;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            
+            &.left {
+                left: 0;
+                justify-content: flex-end;
+                text-align: right;
+            }
+
+            &.right {
+                left: 50%;
+                text-align: left;
+            }
+
+            .timeline-box {
+                background: rgba(255, 255, 255, 0.05);
+                padding: 15px 20px;
+                border-radius: 8px;
+                width: 90%;
+                transition: box-shadow $transition-speed ease-in-out;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+                &:hover {
+                    box-shadow: 0 8px 16px rgba(255, 107, 92, 0.6);
+                    transform: translateY(-3px);
+                }
+
+                .timeline-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    cursor: pointer;
+                    padding-bottom: 10px;
+                    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+
+                    .role-info {
+                        text-align: left;
+
+                        h3 {
+                            font-size: 20px;
+                            color: $color-primary;
+                        }
+
+                        span {
+                            font-size: 16px;
+                            color: #ccc;
+                        }
+                    }
+
+                    .toggle-btn {
+                        background: none;
+                        border: none;
+                        color: $color-light;
+                        font-size: 22px;
+                        cursor: pointer;
+                        transition: transform 0.2s;
+                    }
+                }
+
+                .timeline-content {
+                    display: none;
+                    text-align: left;
+                    padding-top: 10px;
+                    opacity: 0;
+                    max-height: 0;
+                    transition: opacity 0.3s ease, max-height 0.3s ease;
+
+                    ul {
+                        padding-left: 20px;
+                        list-style: disc;
+
+                        li {
+                            font-size: 16px;
+                            line-height: 1.5;
+                        }
+                    }
+                }
+
+                .timeline-content.show {
+                    display: block;
+                    opacity: 1;
+                    max-height: 500px;
+                }
+            }
+
+            .timeline-dot {
+                position: absolute;
+                top: 20px;
+                left: 50%;
+                width: 20px;
+                height: 20px;
+                background: $color-primary;
+                border-radius: 50%;
+                border: 3px solid #fff;
+                transform: translateX(-50%);
+                box-shadow: 0 0 10px rgba(255, 107, 92, 0.8);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 40px;
+
+        &.left, &.right {
+            left: 0;
+            justify-content: flex-start;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            left: 20px;
+        }
+    }
+}
