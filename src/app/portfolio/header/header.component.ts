@@ -6,18 +6,20 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  menuOpen: boolean = false;
+  menuOpen = false;
 
   toggleMenu() {
-    this.menuOpen = !this.menuOpen;
+    if (window.innerWidth <= 768) { // Apply only on mobile screens
+      this.menuOpen = !this.menuOpen;
+    }
   }
 
   @HostListener('document:click', ['$event'])
   closeMenu(event: Event) {
-    const nav = document.querySelector('nav');
-    const burger = document.querySelector('.burger');
-
-    if (this.menuOpen && nav && !nav.contains(event.target as Node) && !burger?.contains(event.target as Node)) {
+    const clickedElement = event.target as HTMLElement;
+    
+    // Check if clicked outside the header or burger menu
+    if (window.innerWidth <= 768 && !clickedElement.closest('header') && !clickedElement.closest('.burger')) {
       this.menuOpen = false;
     }
   }

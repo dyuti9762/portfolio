@@ -65,23 +65,71 @@ $color-light: #ffffff;
     box-shadow: 0px 2px 8px rgba(255, 107, 92, 0.3);
 }
 
-.image {
-    flex: 1;
+.image-container {
+    position: relative;
+    width: 550px;  // Increased space
+    height: 550px;
     display: flex;
+    align-items: center;
     justify-content: center;
 }
 
-.image img {
-    max-width: 280px; // Reduced size slightly
-    border-radius: 50%;
-    box-shadow: 0px 0px 20px rgba(255, 107, 92, 0.5);
+/* Profile Image */
+.image {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    z-index: 10; // Keep the profile image on top
+
+    img {
+        width: 100%;
+        border-radius: 50%;
+        box-shadow: 0px 0px 20px rgba(255, 107, 92, 0.6);
+    }
 }
 
+/* Icons */
+.icon {
+    position: absolute;
+    width: 50px;
+    //height: 50px;
+    transition: transform 0.3s ease-in-out;
+    animation: float 4s infinite ease-in-out alternate;
+}
+
+/* Floating Animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-20px); }
+}
+
+/* Randomly Spread Out Icons */
+.icon-angular { top: 7%; left: 24%; animation-delay: 0s; }
+.icon-html { top: 10%; right: 10%; animation-delay: 0.5s; }
+.icon-graphql { top: 32%; right: 12%; animation-delay: 1s; }
+.icon-spark { bottom: 9%; right: 22%; animation-delay: 1.5s; }
+.icon-aws { bottom: 11%; left: 32%; transform: translateX(-50%); animation-delay: 2s; width: 70px;}
+.icon-docker { bottom: 20%; left: 5%; animation-delay: 2.5s; }
+.icon-python { top: 28%; left: 11%; animation-delay: 3s; }
+.icon-node { top: 17%; right: 32%; animation-delay: 3.5s; }
+.icon-golang { bottom: 35%; right: 15%; animation-delay: 4s; }
+.icon-azure { bottom: 35%; left: 15%; animation-delay: 4.5s; }
+
+/* Hover Effect */
+.icon:hover {
+    transform: scale(1.3);
+}
+
+
+
+
+
 /* About Me Section */
-#about {
+.about {
     background: darken($color-dark, 5%);
     padding: 60px 20px;
     text-align: center;
+    margin-top: 20px;
 }
 
 .about-container {
@@ -127,14 +175,32 @@ $color-light: #ffffff;
         order: 2;
     }
 
-    .image {
-        order: 1;
-        margin-bottom: 20px;
+    .image-container {
+        width: 400px;
+        height: 400px;
     }
 
-    .image img {
-        max-width: 220px; // Smaller image for tablet
+    .image {
+        width: 160px;
+        height: 160px;
     }
+
+    .icon {
+        width: 40px;
+    }
+
+    /* Adjusting icon positions */
+    .icon-angular { top: 8%; left: 20%; }
+    .icon-html { top: 12%; right: 15%; }
+    .icon-graphql { top: 28%; right: 7%; }
+    .icon-spark { bottom: 15%; right: 18%; }
+    .icon-aws { bottom: -2%; left: 25%; width: 60px; }
+    .icon-docker { bottom: 9%; left: 54%; }
+    .icon-python { top: 39%; left: 4%; }
+    .icon-node { top: 15%; right: 43%; }
+    .icon-golang { bottom: 39%; right: 0%; }
+    .icon-azure { bottom: 24%; left: 12%; }
+
 
     #about {
         margin-top: 25px;
@@ -159,9 +225,31 @@ $color-light: #ffffff;
         padding: 10px 20px;
     }
 
-    .image img {
-        max-width: 180px; // Even smaller image for mobile
+    .image-container {
+        width: 300px;
+        height: 300px;
     }
+
+    .image {
+        width: 130px;
+        height: 130px;
+    }
+
+    .icon {
+        width: 30px;
+    }
+
+    /* Adjusting icon positions */
+    .icon-angular { top: 8%; left: 28%; }
+    .icon-html { top: 7%; right: 24%; }
+    .icon-graphql { top: 29%; right: 15%; }
+    .icon-spark { bottom: 18%; right: 15%; }
+    .icon-aws { bottom: 11%; left: 46%; width: 50px; }
+    .icon-docker { bottom: 12%; left: 19%; }
+    .icon-python { top: 23%; left: 16%; }
+    .icon-node { top: 17%; right: 35%; }
+    .icon-golang { bottom: 45%; right: 10%; }
+    .icon-azure { bottom: 35%; left: 10%; }
 
     #about {
         margin-top: 25px;

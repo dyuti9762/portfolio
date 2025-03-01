@@ -1,22 +1,26 @@
-<header>
-  <div class="logo">
-    <a href="https://parenting.firstcry.com/baby-names/meaning-of-dyuti/" target="_blank">
-        <img src="assets/diamond.png" alt="Diamond Logo">
-    </a>
-</div>
-  <nav [class.open]="menuOpen">
-      <ul>
-          <li><a href="#home" (click)="toggleMenu()">Home</a></li>
-          <li><a href="#skills" (click)="toggleMenu()">Skills</a></li>
-          <li><a href="#experience" (click)="toggleMenu()">Experience</a></li>
-          <li><a href="#achievements-education" (click)="toggleMenu()">Achievements</a></li>
-          <li><a href="#key-features" (click)="toggleMenu()">Key Features</a></li>
-          <li><a href="#contact" (click)="toggleMenu()">Contacts</a></li>
-      </ul>
-  </nav>
-  <div class="burger" (click)="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-  </div>
-</header>
+<header [class.open]="menuOpen">
+    <div class="logo">
+      <a href="https://parenting.firstcry.com/baby-names/meaning-of-dyuti/" target="_blank">
+          <img src="assets/diamond.png" alt="Diamond Logo">
+          <span class="tooltip">Ever wondered? 🤔</span>
+      </a>
+    </div>
+  
+    <nav>
+        <ul>
+            <li><a href="#" (click)="toggleMenu()">Home</a></li>
+            <li><a href="#skills" (click)="toggleMenu()">Skills</a></li>
+            <li><a href="#experience" (click)="toggleMenu()">Experience</a></li>
+            <li><a href="#achievements-education" (click)="toggleMenu()">Achievements</a></li>
+            <li><a href="#key-features" (click)="toggleMenu()">Key Features</a></li>
+            <li><a href="#contact" (click)="toggleMenu()">Contacts</a></li>
+        </ul>
+    </nav>
+  
+    <div class="burger" [class.open]="menuOpen" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+  </header>
+  
